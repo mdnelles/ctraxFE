@@ -1,0 +1,37 @@
+body {
+   background-color: #cccccc;
+}
+.displayNone {
+   display: none;
+}
+.displayBlock {
+   display: inline-block;
+}
+.vertical-center {
+   margin: 0;
+   position: absolute;
+   top: 50%;
+   -ms-transform: translateY(-50%);
+   transform: translateY(-50%);
+}
+.center-inner {
+   display: table;
+   margin: 0 auto;
+}
+
+.center-outer {
+   width: 95%;
+}
+.divcenter {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+}
+.center {
+   margin: auto;
+   text-align: center;
+}
+.padding1 {
+   padding: 20px;
+}
