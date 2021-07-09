@@ -1,12 +1,12 @@
 import services from "./services";
 
-export const USER_SET_DATA = "USER_SET_DATA";
-export const USER_CLEAR_DATA = "USER_CLEAR_DATA";
+export const DAILIES_SET_DATA = "DAILIES_SET_DATA";
+export const DAILIES_CLEAR_DATA = "DAILIES_CLEAR_DATA";
 
-const userSetData = (data) => ({ type: USER_SET_DATA, data });
-export const userClearData = () => ({ type: USER_CLEAR_DATA });
+const dailiesSetData = (data) => ({ type: DAILIES_SET_DATA, data });
+export const dailiesClearData = () => ({ type: DAILIES_CLEAR_DATA });
 
-export const loginUser = (email, password) => async (dispatch) => {
+export const loginDailies = (email, password) => async (dispatch) => {
    try {
       const response = await services.login({ email, password });
 
@@ -14,7 +14,7 @@ export const loginUser = (email, password) => async (dispatch) => {
          return response;
       } else {
          const { id, firstName, lastName } = response.nameInfo;
-         let newUserData = {
+         let newDailiesData = {
             email,
             firstName,
             lastName,
@@ -22,7 +22,7 @@ export const loginUser = (email, password) => async (dispatch) => {
             token: response.token,
          };
 
-         dispatch(userSetData(newUserData));
+         dispatch(dailiesSetData(newDailiesData));
          window.location.href = "/dashboard";
       }
    } catch (error) {
@@ -31,11 +31,11 @@ export const loginUser = (email, password) => async (dispatch) => {
    }
 };
 
-export const editUser = (email, firstName, lastName, token) => {
+export const editDailies = (email, firstName, lastName, token) => {
    return new Promise((resolve, reject) => {
       try {
          (async () => {
-            const response = await services.editUser({
+            const response = await services.editDailies({
                email: email,
                first_name: firstName,
                last_name: lastName,
