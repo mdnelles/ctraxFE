@@ -1,1 +1,1 @@
-export const getUserData = (store) => store.user;
+export const getDailiesData = (store) => store.dalies;
