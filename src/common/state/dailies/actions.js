@@ -1,9 +1,9 @@
 import services from "./services";
 
-export const DAILIES_SET_DATA = "DAILIES_SET_DATA";
-export const DAILIES_CLEAR_DATA = "DAILIES_CLEAR_DATA";
-export const POPULATE_DAILIES = "POPULATE_DAILIES";
+export const SET_DAILIES_DATA = "SET_DAILIES_DATA";
+export const CLEAR_DAILIES_DATA = "CLEAR_DAILIES_DATA";
+export const POPULATE_DAILIES_DATA = "POPULATE_DAILIES_DATA";
 
-export const dailiesSetData = (data) => ({ type: DAILIES_SET_DATA, data });
-export const dailiesClearData = () => ({ type: DAILIES_CLEAR_DATA });
-export const dailiespopData = () => ({ type: POPULATE_DAILIES });
+export const setDailiesData = (data) => ({ type: SET_DAILIES_DATA, data });
+export const clearDailiesData = () => ({ type: CLEAR_DAILIES_DATA });
+export const populateDailiesData = () => ({ type: POPULATE_DAILIES_DATA });

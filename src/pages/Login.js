@@ -14,6 +14,8 @@ import clsx from "clsx";
 import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
+import { useDailyhrData } from "../common/state/dailyhr/hooks";
+import { useDailiesData } from "../common/state/dailies/hooks";
 import { useUserData } from "../common/state/user/hooks";
 import { theme } from "../constants/theme";
 
@@ -124,8 +126,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Login = (props) => {
-   const classes = useStyles();
+   const { populateDailyhrData } = useDailyhrData();
+   const { populateDailiesData } = useDailiesData();
    const { login } = useUserData();
+
+   const classes = useStyles();
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
    const [passwordShown, setPasswordShown] = useState(false);
@@ -174,6 +179,11 @@ const Login = (props) => {
       },
       [email, password, login]
    );
+
+   React.useEffect(() => {
+      populateDailyhrData();
+      populateDailiesData();
+   });
 
    return (
       <div className='vertical-center center-outer'>

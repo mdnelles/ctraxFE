@@ -1,20 +1,20 @@
 import {
-   DAILIES_CLEAR_DATA,
-   DAILIES_SET_DATA,
-   POPULATE_DAILIES,
+   CLEAR_DAILIES_DATA,
+   SET_DAILIES_DATA,
+   POPULATE_DAILIES_DATA,
 } from "./actions";
 
 const initialState = [];
 
 export default (state = initialState, action) => {
    switch (action.type) {
-      case DAILIES_SET_DATA:
+      case SET_DAILIES_DATA:
          return { ...state, ...action.data };
 
-      case DAILIES_CLEAR_DATA:
+      case CLEAR_DAILIES_DATA:
          return { ...initialState };
 
-      case POPULATE_DAILIES:
+      case POPULATE_DAILIES_DATA:
          return [
             {
                activity_calories: 754,

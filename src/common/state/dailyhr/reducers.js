@@ -1,16 +1,20 @@
-import { DAILYHR_CLEAR_DATA, DAILYHR_SET_DATA } from "./actions";
+import {
+   CLEAR_DAILYHR_DATA,
+   SET_DAILYHR_DATA,
+   POPULATE_DAILYHR_DATA,
+} from "./actions";
 
 const initialState = [];
 
 export default (state = initialState, action) => {
    switch (action.type) {
-      case DAILYHR_SET_DATA:
+      case SET_DAILYHR_DATA:
          return { ...state, ...action.data };
 
-      case DAILYHR_CLEAR_DATA:
+      case CLEAR_DAILYHR_DATA:
          return { ...initialState };
 
-      case POPULATE_DAILYHR:
+      case POPULATE_DAILYHR_DATA:
          return [
             {
                start_time: "2021-06-12 04:00:00",
