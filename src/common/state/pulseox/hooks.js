@@ -1,29 +1,21 @@
-import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { isRoute } from "../../../components/utilities/Functions";
-import { loginUser, userClearData } from "./actions";
-import { getUserData } from "./selectors";
+import * as actions from "./actions";
+import { getPulseOXData } from "./selectors";
 
-export const useUserData = () => {
+export const usePulseOXData = () => {
    const dispatch = useDispatch();
-   const { email, token, firstName, lastName, id } = useSelector(getUserData);
-   const isLoggedIn = !!email && !!token;
 
-   const login = useCallback(
-      (email, password) => dispatch(loginUser(email, password)),
-      [dispatch]
-   );
-   const logout = useCallback(() => dispatch(userClearData()), [dispatch]);
+   const epochData = useSelector(getPulseOXData);
+
+   const clearPulseOXData = () => dispatch(actions.clearPulseOXData());
+   const setPulseOXData = (data) => dispatch(actions.setPulseOXData(data));
+   const populatePulseOXData = () => dispatch(actions.populatePulseOXData());
 
    return {
-      email,
-      token,
-      isLoggedIn,
-      firstName,
-      lastName,
-      id,
+      epochData,
 
-      login,
-      logout,
+      clearPulseOXData,
+      setPulseOXData,
+      populatePulseOXData,
    };
 };

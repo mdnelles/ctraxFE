@@ -1,1 +1,1 @@
-export const getUserData = (store) => store.user;
+export const getPulseOXData = (store) => store.user;
