@@ -1,29 +1,21 @@
-import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { isRoute } from "../../../components/utilities/Functions";
-import { loginUser, userClearData } from "./actions";
-import { getUserData } from "./selectors";
+import * as actions from "./actions";
+import { getDailesData } from "./selectors";
 
-export const useUserData = () => {
+export const useDailiesData = () => {
    const dispatch = useDispatch();
-   const { email, token, firstName, lastName, id } = useSelector(getUserData);
-   const isLoggedIn = !!email && !!token;
 
-   const login = useCallback(
-      (email, password) => dispatch(loginUser(email, password)),
-      [dispatch]
-   );
-   const logout = useCallback(() => dispatch(userClearData()), [dispatch]);
+   const dailiesData = useSelector(getDailesData);
+
+   const clearDailiesData = dispatch(actions.clearDailiesData());
+   const setDailiesData = dispatch(actions.clearDailiesData());
+   const populateDailiesData = dispatch(actions.populateDailiesData());
 
    return {
-      email,
-      token,
-      isLoggedIn,
-      firstName,
-      lastName,
-      id,
+      dailiesData,
 
-      login,
-      logout,
+      clearDailiesData,
+      setDailiesData,
+      populateDailiesData,
    };
 };
