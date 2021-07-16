@@ -1,29 +1,23 @@
-import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { isRoute } from "../../../components/utilities/Functions";
-import { loginUser, userClearData } from "./actions";
-import { getUserData } from "./selectors";
+import * as actions from "./actions";
+import { getRespirationData } from "./selectors";
 
-export const useUserData = () => {
+export const useRespirationData = () => {
    const dispatch = useDispatch();
-   const { email, token, firstName, lastName, id } = useSelector(getUserData);
-   const isLoggedIn = !!email && !!token;
 
-   const login = useCallback(
-      (email, password) => dispatch(loginUser(email, password)),
-      [dispatch]
-   );
-   const logout = useCallback(() => dispatch(userClearData()), [dispatch]);
+   const respirationData = useSelector(getRespirationData);
+
+   const clearRespirationData = () => dispatch(actions.clearRespirationData());
+   const setRespirationData = (data) =>
+      dispatch(actions.setRespirationData(data));
+   const populateRespirationData = () =>
+      dispatch(actions.populateRespirationData());
 
    return {
-      email,
-      token,
-      isLoggedIn,
-      firstName,
-      lastName,
-      id,
+      respirationData,
 
-      login,
-      logout,
+      clearRespirationData,
+      setRespirationData,
+      populateRespirationData,
    };
 };
