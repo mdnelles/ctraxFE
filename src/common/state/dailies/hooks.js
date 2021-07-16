@@ -8,7 +8,7 @@ export const useDailiesData = () => {
    const dailiesData = useSelector(getDailesData);
 
    const clearDailiesData = dispatch(actions.clearDailiesData());
-   const setDailiesData = dispatch(actions.clearDailiesData());
+   const setDailiesData = dispatch(actions.clearDailiesData(data));
    const populateDailiesData = dispatch(actions.populateDailiesData());
 
    return {
