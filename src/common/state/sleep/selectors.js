@@ -1,1 +1,1 @@
-export const getUserData = (store) => store.user;
+export const getSleepData = (store) => store.user;

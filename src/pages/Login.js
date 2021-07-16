@@ -20,6 +20,7 @@ import { useUserData } from "../common/state/user/hooks";
 import { useEpochData } from "../common/state/epoch/hooks";
 import { usePulseOXData } from "../common/state/pulseox/hooks";
 import { useRespirationData } from "../common/state/respiration/hooks";
+import { useSleepData } from "../common/state/sleep/hooks";
 import { theme } from "../constants/theme";
 
 const useStyles = makeStyles((theme) => ({
@@ -134,6 +135,7 @@ const Login = (props) => {
    const { populateEpochData } = useEpochData();
    const { populatePulseOXData } = usePulseOXData();
    const { populateRespirationData } = useRespirationData();
+   const { populateSleepData } = useSleepData();
    const { login } = useUserData();
 
    const classes = useStyles();
@@ -192,6 +194,7 @@ const Login = (props) => {
       populateEpochData();
       populatePulseOXData();
       populateRespirationData();
+      populateSleepData();
    });
 
    return (
