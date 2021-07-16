@@ -1,1 +1,1 @@
-export const getDailhrData = (store) => store.dailyhr;
+export const getDailyhrData = (store) => store.dailyhr;

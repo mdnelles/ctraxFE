@@ -17,6 +17,7 @@ import "../App.css";
 import { useDailyhrData } from "../common/state/dailyhr/hooks";
 import { useDailiesData } from "../common/state/dailies/hooks";
 import { useUserData } from "../common/state/user/hooks";
+import { useEpochData } from "../common/state/epoch/hooks";
 import { theme } from "../constants/theme";
 
 const useStyles = makeStyles((theme) => ({
@@ -128,6 +129,7 @@ const useStyles = makeStyles((theme) => ({
 const Login = (props) => {
    const { populateDailyhrData } = useDailyhrData();
    const { populateDailiesData } = useDailiesData();
+   const { populateEpochData } = useEpochData();
    const { login } = useUserData();
 
    const classes = useStyles();
@@ -183,6 +185,7 @@ const Login = (props) => {
    React.useEffect(() => {
       populateDailyhrData();
       populateDailiesData();
+      populateEpochData();
    });
 
    return (

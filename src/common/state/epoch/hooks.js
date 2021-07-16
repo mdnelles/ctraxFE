@@ -1,29 +1,21 @@
-import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { isRoute } from "../../../components/utilities/Functions";
-import { loginUser, userClearData } from "./actions";
-import { getUserData } from "./selectors";
+import * as actions from "./actions";
+import { getEpochData } from "./selectors";
 
-export const useUserData = () => {
+export const useEpochData = () => {
    const dispatch = useDispatch();
-   const { email, token, firstName, lastName, id } = useSelector(getUserData);
-   const isLoggedIn = !!email && !!token;
 
-   const login = useCallback(
-      (email, password) => dispatch(loginUser(email, password)),
-      [dispatch]
-   );
-   const logout = useCallback(() => dispatch(userClearData()), [dispatch]);
+   const epochData = useSelector(getEpochData);
+
+   const clearEpochData = () => dispatch(actions.clearEpochData());
+   const setEpochData = (data) => dispatch(actions.setEpochData(data));
+   const populateEpochData = () => dispatch(actions.populateEpochData());
 
    return {
-      email,
-      token,
-      isLoggedIn,
-      firstName,
-      lastName,
-      id,
+      epochData,
 
-      login,
-      logout,
+      clearEpochData,
+      setEpochData,
+      populateEpochData,
    };
 };

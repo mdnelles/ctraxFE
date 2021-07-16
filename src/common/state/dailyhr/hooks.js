@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "./actions";
-import { getDailhrData } from "./selectors";
+import { getDailyhrData } from "./selectors";
 
 export const useDailyhrData = () => {
    const dispatch = useDispatch();
 
-   const dailyhrData = useSelector(getDailhrData);
+   const dailyhrData = useSelector(getDailyhrData);
 
    const clearDailyhrData = () => dispatch(actions.clearDailyhrData());
    const setDailyhrData = (data) => dispatch(actions.setDailyhrData(data));
