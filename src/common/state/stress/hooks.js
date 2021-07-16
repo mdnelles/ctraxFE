@@ -1,29 +1,21 @@
-import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { isRoute } from "../../../components/utilities/Functions";
-import { loginUser, userClearData } from "./actions";
-import { getUserData } from "./selectors";
+import * as actions from "./actions";
+import { getStressData } from "./selectors";
 
-export const useUserData = () => {
+export const useStressData = () => {
    const dispatch = useDispatch();
-   const { email, token, firstName, lastName, id } = useSelector(getUserData);
-   const isLoggedIn = !!email && !!token;
 
-   const login = useCallback(
-      (email, password) => dispatch(loginUser(email, password)),
-      [dispatch]
-   );
-   const logout = useCallback(() => dispatch(userClearData()), [dispatch]);
+   const stressData = useSelector(getStressData);
+
+   const clearStressData = () => dispatch(actions.clearStressData());
+   const setStressData = (data) => dispatch(actions.setStressData(data));
+   const populateStressData = () => dispatch(actions.populateStressData());
 
    return {
-      email,
-      token,
-      isLoggedIn,
-      firstName,
-      lastName,
-      id,
+      stressData,
 
-      login,
-      logout,
+      clearStressData,
+      setStressData,
+      populateStressData,
    };
 };

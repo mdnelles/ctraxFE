@@ -8,8 +8,15 @@ export const userClearData = () => ({ type: USER_CLEAR_DATA });
 
 export const loginUser = (email, password) => async (dispatch) => {
    try {
-      const response = await services.login({ email, password });
-
+      //const response = await services.login({ email, password });
+      // bypass login for the time being
+      const response = {
+         email: "test@curetrax.com",
+         firstName: "Podolski",
+         lastName: "Klose",
+         id: 109,
+         token: "9uhrv9ueh3c9u2hdc92hci9uw4hci9ureujfhvcifcnojkdwjncxiowejcxioewjxijowechhriygvreu8g",
+      };
       if (!!response.err) {
          return response;
       } else {
