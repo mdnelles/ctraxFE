@@ -6,9 +6,13 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       flexWrap: "wrap",
    },
+   main: {
+      minHeight: window.innerHeight,
+   },
 }));
 
-const Funds = (props) => {
-   return <div>this is Funds</div>;
+const Stress = (props) => {
+   const classes = useStyles();
+   return <div className={classes.main}>Stress</div>;
 };
-export default Funds;
+export default Stress;

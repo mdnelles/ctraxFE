@@ -11,8 +11,8 @@ const useStyles = makeStyles((theme) => ({
    },
 }));
 
-const Dailyhr = (props) => {
+const Sleep = (props) => {
    const classes = useStyles();
-   return <div className={classes.main}>DailyHR</div>;
+   return <div className={classes.main}>Sleep</div>;
 };
-export default Dailyhr;
+export default Sleep;

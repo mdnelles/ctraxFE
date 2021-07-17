@@ -6,9 +6,13 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       flexWrap: "wrap",
    },
+   main: {
+      minHeight: window.innerHeight,
+   },
 }));
 
-const HistoryLogs = (props) => {
-   return <div>this is HistoryLogs</div>;
+const Dailies = (props) => {
+   const classes = useStyles();
+   return <div className={classes.main}>Dailies</div>;
 };
-export default HistoryLogs;
+export default Dailies;

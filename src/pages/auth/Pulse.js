@@ -6,9 +6,13 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       flexWrap: "wrap",
    },
+   main: {
+      minHeight: window.innerHeight,
+   },
 }));
 
-const Dashboard = (props) => {
-   return <div>this is Dashboard</div>;
+const Pulse = (props) => {
+   const classes = useStyles();
+   return <div className={classes.main}>Pulse</div>;
 };
-export default Dashboard;
+export default Pulse;

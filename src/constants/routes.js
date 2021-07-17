@@ -8,12 +8,16 @@ import Forgot from "../pages/Forgot";
 import Verify from "../pages/Verify";
 
 import Home from "../pages/auth/Home";
-import Dashboard from "../pages/auth/Dashboard";
 import Logs from "../pages/auth/Logs";
 import Users from "../pages/auth/Users";
-import HistoryLogs from "../pages/auth/HistoryLogs";
-import Charts from "../pages/auth/Charts";
-import Funds from "../pages/auth/Funds";
+
+import Dailies from "../pages/auth/Dailies";
+import Dailyhr from "../pages/auth/Dailyhr";
+import Epoch from "../pages/auth/Epoch";
+import Pulse from "../pages/auth/Pulse";
+import Respiration from "../pages/auth/Respiration";
+import Sleep from "../pages/auth/Sleep";
+import Stress from "../pages/auth/Stress";
 import MyProfile from "../pages/auth/MyProfilePage/MyProfilePage";
 
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
@@ -24,14 +28,18 @@ export const ROUTE_SIGNUP = "/signup";
 export const ROUTE_FORGOT = "/forgot";
 export const ROUTE_VERIFY = "/verify";
 
-export const ROUTE_DASHBOARD = "/dashboard";
 export const ROUTE_HOME = "/auth/home";
 export const ROUTE_LOGS = "/auth/logs";
 export const ROUTE_USERS = "/auth/users";
 export const ROUTE_MY_PROFILE = "/auth/profile";
-export const ROUTE_HISTORY_LOGS = "/auth/HISTORY_LOGS";
-export const ROUTE_CHARTS = "/auth/charts";
-export const ROUTE_FUNDS = "/auth/funds";
+
+export const ROUTE_DAILIES = "/auth/dalies";
+export const ROUTE_DAILYHR = "/auth/dailyhr";
+export const ROUTE_EPOCH = "/auth/epoch";
+export const ROUTE_PULSE = "/auth/pulse";
+export const ROUTE_RESPIRATION = "/auth/respiration";
+export const ROUTE_SLEEP = "/auth/sleep";
+export const ROUTE_STRESS = "/auth/stress";
 
 export const ROUTE_404 = "/page-not-found";
 export const ROUTE_ALL = "*";
@@ -45,6 +53,13 @@ export const PRIVATE_ROUTES = [
    ROUTE_HISTORY_LOGS,
    ROUTE_FUNDS,
    ROUTE_CHARTS,
+   ROUTE_DAILIES,
+   ROUTE_DAILYHR,
+   ROUTE_EPOCH,
+   ROUTE_PULSE,
+   ROUTE_RESPIRATION,
+   ROUTE_SLEEP,
+   ROUTE_STRESS,
 ];
 export const UNAUTHORIZED_ROUTES = [
    ROUTE_LOGIN,
@@ -78,10 +93,6 @@ export const routes = [
 
 export const routesAuthenticated = [
    {
-      path: ROUTE_DASHBOARD,
-      component: Dashboard,
-   },
-   {
       path: ROUTE_HOME,
       component: Home,
    },
@@ -90,16 +101,36 @@ export const routesAuthenticated = [
       component: Logs,
    },
    {
+      path: ROUTE_DAILIES,
+      component: Dailies,
+   },
+   {
+      path: ROUTE_DAILYHR,
+      component: Dailyhr,
+   },
+   {
+      path: ROUTE_EPOCH,
+      component: Epoch,
+   },
+   {
+      path: ROUTE_PULSE,
+      component: Pulse,
+   },
+   {
+      path: ROUTE_RESPIRATION,
+      component: Respiration,
+   },
+   {
+      path: ROUTE_SLEEP,
+      component: Sleep,
+   },
+   {
+      path: ROUTE_STRESS,
+      component: Stress,
+   },
+   {
       path: ROUTE_HISTORY_LOGS,
       component: HistoryLogs,
-   },
-   {
-      path: ROUTE_CHARTS,
-      component: Charts,
-   },
-   {
-      path: ROUTE_FUNDS,
-      component: Funds,
    },
    {
       path: ROUTE_USERS,
