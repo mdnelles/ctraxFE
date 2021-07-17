@@ -6,9 +6,13 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       flexWrap: "wrap",
    },
+   main: {
+      minHeight: window.innerHeight,
+   },
 }));
 
 const Home = (props) => {
-   return <div>this is Home</div>;
+   const classes = useStyles();
+   return <div className={classes.main}>this is Home</div>;
 };
 export default Home;

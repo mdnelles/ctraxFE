@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
       margin: 0,
    },
    icon: {
-      "color": "#fff",
+      "color": "#333",
       "transition": theme.transitions.create("color"),
       "&:hover": {
          color: theme.palette.primary.light,
