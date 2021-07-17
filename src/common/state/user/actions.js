@@ -7,16 +7,25 @@ const userSetData = (data) => ({ type: USER_SET_DATA, data });
 export const userClearData = () => ({ type: USER_CLEAR_DATA });
 
 export const loginUser = (email, password) => async (dispatch) => {
+   const response = {};
+   response.nameInfo = {};
+   let newUserData = {
+      email: "test@curetrax.com",
+      firstName: "Podolski",
+      lastName: "Klose",
+      id: 109,
+      token: "9uhrv9ueh3c9u2hdc92hci9uw4hci9ureujfhvcifcnojkdwjncxiowejcxioewjxijowechhriygvreu8g",
+   };
+
+   dispatch(userSetData(newUserData));
+   window.location.href = "/dashboard";
+   /*
    try {
       //const response = await services.login({ email, password });
       // bypass login for the time being
-      const response = {
-         email: "test@curetrax.com",
-         firstName: "Podolski",
-         lastName: "Klose",
-         id: 109,
-         token: "9uhrv9ueh3c9u2hdc92hci9uw4hci9ureujfhvcifcnojkdwjncxiowejcxioewjxijowechhriygvreu8g",
-      };
+
+      console.log("======================= >> response <<");
+      console.log(response);
       if (!!response.err) {
          return response;
       } else {
@@ -35,7 +44,7 @@ export const loginUser = (email, password) => async (dispatch) => {
    } catch (error) {
       console.log("---catch errror--");
       console.log(error);
-   }
+   }*/
 };
 
 export const editUser = (email, firstName, lastName, token) => {

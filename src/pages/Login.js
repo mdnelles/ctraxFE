@@ -198,7 +198,7 @@ const Login = (props) => {
       populateRespirationData();
       populateSleepData();
       populateStressData();
-   });
+   }, []);
 
    return (
       <div className='vertical-center center-outer'>
@@ -241,9 +241,6 @@ const Login = (props) => {
                         className={classes.inputContainer}
                         required
                         size='small'
-                        InputLabelProps={{
-                           shrink: true,
-                        }}
                         label='Email'
                         variant='outlined'
                         defaultValue={email}
@@ -256,16 +253,10 @@ const Login = (props) => {
                         className={clsx(classes.margin, classes.textField)}
                         variant='outlined'
                         style={{ marginTop: 31 }}
-                        InputLabelProps={{
-                           shrink: true,
-                        }}
                      >
                         <label
                            htmlFor='outlined-adornment-password'
                            style={{ display: "none" }}
-                           InputLabelProps={{
-                              shrink: true,
-                           }}
                         >
                            Email
                         </label>
@@ -273,9 +264,6 @@ const Login = (props) => {
                            Password
                         </InputLabel>
                         <OutlinedInput
-                           InputLabelProps={{
-                              shrink: true,
-                           }}
                            id='outlined-adornment-password'
                            type={passwordShown ? "text" : "password"}
                            className={classes.inputPass}
