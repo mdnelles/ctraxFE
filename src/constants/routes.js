@@ -45,14 +45,10 @@ export const ROUTE_404 = "/page-not-found";
 export const ROUTE_ALL = "*";
 
 export const PRIVATE_ROUTES = [
-   ROUTE_DASHBOARD,
    ROUTE_HOME,
    ROUTE_LOGS,
    ROUTE_USERS,
    ROUTE_MY_PROFILE,
-   ROUTE_HISTORY_LOGS,
-   ROUTE_FUNDS,
-   ROUTE_CHARTS,
    ROUTE_DAILIES,
    ROUTE_DAILYHR,
    ROUTE_EPOCH,
@@ -127,10 +123,6 @@ export const routesAuthenticated = [
    {
       path: ROUTE_STRESS,
       component: Stress,
-   },
-   {
-      path: ROUTE_HISTORY_LOGS,
-      component: HistoryLogs,
    },
    {
       path: ROUTE_USERS,

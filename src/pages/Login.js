@@ -13,15 +13,10 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import clsx from "clsx";
 import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
-import "../App.css";
-import { useDailyhrData } from "../common/state/dailyhr/hooks";
-import { useDailiesData } from "../common/state/dailies/hooks";
 import { useUserData } from "../common/state/user/hooks";
-import { useEpochData } from "../common/state/epoch/hooks";
-import { usePulseOXData } from "../common/state/pulseox/hooks";
-import { useRespirationData } from "../common/state/respiration/hooks";
-import { useSleepData } from "../common/state/sleep/hooks";
-import { useStressData } from "../common/state/stress/hooks";
+
+import "../App.css";
+
 import { theme } from "../constants/theme";
 
 const useStyles = makeStyles((theme) => ({
@@ -136,13 +131,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Login = (props) => {
-   const { populateDailyhrData } = useDailyhrData();
-   const { populateDailiesData } = useDailiesData();
-   const { populateEpochData } = useEpochData();
-   const { populatePulseOXData } = usePulseOXData();
-   const { populateRespirationData } = useRespirationData();
-   const { populateSleepData } = useSleepData();
-   const { populateStressData } = useStressData();
    const { login } = useUserData();
 
    const classes = useStyles();
@@ -194,16 +182,6 @@ const Login = (props) => {
       },
       [email, password, login]
    );
-
-   React.useEffect(() => {
-      populateDailyhrData();
-      populateDailiesData();
-      populateEpochData();
-      populatePulseOXData();
-      populateRespirationData();
-      populateSleepData();
-      populateStressData();
-   }, []);
 
    return (
       <div className={classes.main}>

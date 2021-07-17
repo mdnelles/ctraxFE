@@ -14,17 +14,26 @@ import {
    DRAWER_WIDTH,
    DRAWER_WIDTH_TOGGLED,
 } from "../../constants/layout";
-import TrendingUpIcon from "@material-ui/icons/TrendingUp";
-import HistoryIcon from "@material-ui/icons/History";
 import HomeIcon from "@material-ui/icons/Home";
-
-import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
+import TodayIcon from "@material-ui/icons/Today";
+import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
+import HourglassEmptyIcon from "@material-ui/icons/HourglassEmpty";
+import CloudCircleIcon from "@material-ui/icons/CloudCircle";
+import OpacityIcon from "@material-ui/icons/Opacity";
+import SentimentDissatisfiedIcon from "@material-ui/icons/SentimentDissatisfied";
+import LocalHotelIcon from "@material-ui/icons/LocalHotel";
 import {
-   ROUTE_DASHBOARD,
    ROUTE_HOME,
-   ROUTE_HISTORY_LOGS,
-   ROUTE_CHARTS,
-   ROUTE_FUNDS,
+   ROUTE_LOGS,
+   ROUTE_USERS,
+   ROUTE_MY_PROFILE,
+   ROUTE_DAILIES,
+   ROUTE_DAILYHR,
+   ROUTE_EPOCH,
+   ROUTE_PULSE,
+   ROUTE_RESPIRATION,
+   ROUTE_SLEEP,
+   ROUTE_STRESS,
 } from "../../constants/routes";
 import { goTo, isRoute } from "../utilities/Functions";
 import { useHistory } from "react-router";
@@ -53,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
       "overflowX": "hidden",
       "width": DRAWER_WIDTH_TOGGLED,
       "& $navListItem": {
-         padding: "20px 22px",
+         padding: "10px 12px",
          justifyContent: "center",
       },
       "& $navListItemAvatar": {
@@ -69,9 +78,9 @@ const useStyles = makeStyles((theme) => ({
       padding: "23px 0 38px",
    },
    navListItem: {
-      padding: "20px 20px 20px 38px",
+      padding: "3px 20px 10px 18px",
       color: theme.palette.primary.main,
-      marginBottom: 15,
+      marginBottom: 5,
       transition: theme.transitions.create("all"),
    },
    navListItemActive: {
@@ -103,22 +112,46 @@ const LayoutSidebar = (props) => {
          onClick: (e) => goTo(e, ROUTE_HOME, history),
       },
       {
-         label: "History",
-         icon: <HistoryIcon />,
-         href: ROUTE_HISTORY_LOGS,
-         onClick: (e) => goTo(e, ROUTE_HISTORY_LOGS, history),
+         label: "Dailes",
+         icon: <TodayIcon />,
+         href: ROUTE_DAILIES,
+         onClick: (e) => goTo(e, ROUTE_DAILIES, history),
       },
       {
-         label: "Charts",
-         icon: <TrendingUpIcon />,
-         href: ROUTE_HISTORY_LOGS,
-         onClick: (e) => goTo(e, ROUTE_CHARTS, history),
+         label: "Daily HR ",
+         icon: <LocalHospitalIcon />,
+         href: ROUTE_DAILYHR,
+         onClick: (e) => goTo(e, ROUTE_DAILYHR, history),
       },
       {
-         label: "Funds",
-         icon: <MonetizationOnIcon />,
-         href: ROUTE_HISTORY_LOGS,
-         onClick: (e) => goTo(e, ROUTE_FUNDS, history),
+         label: "Epoch",
+         icon: <HourglassEmptyIcon />,
+         href: ROUTE_EPOCH,
+         onClick: (e) => goTo(e, ROUTE_EPOCH, history),
+      },
+      {
+         label: "Pulse Oxygen",
+         icon: <OpacityIcon />,
+         href: ROUTE_PULSE,
+         onClick: (e) => goTo(e, ROUTE_PULSE, history),
+      },
+      {
+         label: "Respiration",
+         icon: <CloudCircleIcon />,
+         href: ROUTE_RESPIRATION,
+         onClick: (e) => goTo(e, ROUTE_RESPIRATION, history),
+      },
+      {
+         label: "Sleep",
+         icon: <LocalHotelIcon />,
+         href: ROUTE_SLEEP,
+         onClick: (e) => goTo(e, ROUTE_SLEEP, history),
+      },
+      {
+         label: "Stress",
+         icon: <SentimentDissatisfiedIcon />,
+         href: ROUTE_STRESS,
+         onClick: (e) => goTo(e, ROUTE_STRESS, history),
       },
    ];
 
