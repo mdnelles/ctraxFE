@@ -18,7 +18,7 @@ export const loginUser = (email, password) => async (dispatch) => {
    };
 
    dispatch(userSetData(newUserData));
-   window.location.href = "/dashboard";
+   window.location.href = "/auth/home";
    /*
    try {
       //const response = await services.login({ email, password });
@@ -39,7 +39,7 @@ export const loginUser = (email, password) => async (dispatch) => {
          };
 
          dispatch(userSetData(newUserData));
-         window.location.href = "/dashboard";
+         window.location.href = "/home";
       }
    } catch (error) {
       console.log("---catch errror--");

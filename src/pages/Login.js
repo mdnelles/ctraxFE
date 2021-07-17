@@ -29,6 +29,11 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       flexWrap: "wrap",
    },
+   main: {
+      backgroundColor: "#333",
+      width: window.innerWidth,
+      height: window.innerHeight,
+   },
    withoutLabel: {
       marginTop: theme.spacing(3),
    },
@@ -201,135 +206,143 @@ const Login = (props) => {
    }, []);
 
    return (
-      <div className='vertical-center center-outer'>
-         <div className={classes.loginInnerContainer}>
-            <Paper className={classes.loginContainer} elevation={8}>
-               {/* -----------Header----------------*/}
-               <div>
-                  <div className='displayBlock headerNameLogin'>Login</div>
-                  <div className='displayBlock'>{/*img */}</div>
+      <div className={classes.main}>
+         <div className='vertical-center center-outer '>
+            <div className={classes.loginInnerContainer}>
+               <Paper className={classes.loginContainer} elevation={8}>
+                  {/* -----------Header----------------*/}
                   <div>
-                     <div className={classes.topSpacer} />
-                     <div className={msgForWelcome}>
-                        Welcome back!
-                        <br />
-                     </div>
-                     <div
-                        className={msgFromServerClass}
-                        style={{
-                           color: "#900",
-                        }}
-                     >
-                        {msgFromServer}
-                     </div>
-                  </div>
-               </div>
-               <div className={classes.progress + "  " + loading}>
-                  <div className='center-inner'>
-                     <CircularProgress />
-                     <br />
-                     Checking credentials
-                  </div>
-               </div>
-               <div className={seeForm}>
-                  <form onSubmit={handleLogIn}>
-                     <label htmlFor='email' style={{ display: "none" }}>
-                        Email
-                     </label>
-                     <TextField
-                        id='email'
-                        className={classes.inputContainer}
-                        required
-                        size='small'
-                        label='Email'
-                        variant='outlined'
-                        defaultValue={email}
-                        onChange={(event) =>
-                           setEmail(event.target.value.toString().trim())
-                        }
-                     />
-
-                     <FormControl
-                        className={clsx(classes.margin, classes.textField)}
-                        variant='outlined'
-                        style={{ marginTop: 31 }}
-                     >
-                        <label
-                           htmlFor='outlined-adornment-password'
-                           style={{ display: "none" }}
+                     <div className='displayBlock headerNameLogin'>Login</div>
+                     <div className='displayBlock'>{/*img */}</div>
+                     <div>
+                        <div className={classes.topSpacer} />
+                        <div className={msgForWelcome}>
+                           Welcome back!
+                           <br />
+                        </div>
+                        <div
+                           className={msgFromServerClass}
+                           style={{
+                              color: "#900",
+                           }}
                         >
+                           {msgFromServer}
+                        </div>
+                     </div>
+                  </div>
+                  <div className={classes.progress + "  " + loading}>
+                     <div className='center-inner'>
+                        <CircularProgress />
+                        <br />
+                        Checking credentials
+                     </div>
+                  </div>
+                  <div className={seeForm}>
+                     <form onSubmit={handleLogIn}>
+                        <label htmlFor='email' style={{ display: "none" }}>
                            Email
                         </label>
-                        <InputLabel htmlFor='outlined-adornment-password'>
-                           Password
-                        </InputLabel>
-                        <OutlinedInput
-                           id='outlined-adornment-password'
-                           type={passwordShown ? "text" : "password"}
-                           className={classes.inputPass}
+                        <TextField
+                           id='email'
+                           className={classes.inputContainer}
                            required
                            size='small'
-                           label='Password'
-                           //  type="password"
+                           label='Email'
                            variant='outlined'
-                           defaultValue={password}
-                           onChange={(event) => setPassword(event.target.value)}
-                           endAdornment={
-                              <InputAdornment position='end'>
-                                 <IconButton
-                                    aria-label='toggle password visibility'
-                                    onClick={handleClickShowPassword}
-                                    onMouseDown={handleMouseDownPassword}
-                                    edge='end'
-                                    style={{ color: "#BDC3C7" }}
-                                 >
-                                    {passwordShown ? (
-                                       <Visibility />
-                                    ) : (
-                                       <VisibilityOff />
-                                    )}
-                                 </IconButton>
-                              </InputAdornment>
+                           defaultValue={email}
+                           onChange={(event) =>
+                              setEmail(event.target.value.toString().trim())
                            }
-                           labelWidth={70}
                         />
-                     </FormControl>
-                     <Button
-                        id='submit'
-                        type='submit'
-                        className={classes.BtnLogin}
-                        size='small'
-                        variant='contained'
-                     >
-                        LOG IN
-                     </Button>
 
-                     <Button
-                        className={classes.BtnSignUp}
-                        size='small'
-                        variant='contained'
-                        component={Link}
-                        to='/signup'
-                     >
-                        SIGN UP
-                     </Button>
-                     <Button
-                        className={classes.BtnForgot}
-                        size='small'
-                        component={Link}
-                        to='/forgot'
-                     >
-                        Forgot Password?
-                     </Button>
-                  </form>
-               </div>
-               <div style={{ width: "100%", padding: 9 }} />
-               <div
-                  style={{ textAlign: "left", color: "#dddddd", padding: 10 }}
-               >
-                  {props.ver}
-               </div>
-            </Paper>
+                        <FormControl
+                           className={clsx(classes.margin, classes.textField)}
+                           variant='outlined'
+                           style={{ marginTop: 31 }}
+                        >
+                           <label
+                              htmlFor='outlined-adornment-password'
+                              style={{ display: "none" }}
+                           >
+                              Email
+                           </label>
+                           <InputLabel htmlFor='outlined-adornment-password'>
+                              Password
+                           </InputLabel>
+                           <OutlinedInput
+                              id='outlined-adornment-password'
+                              type={passwordShown ? "text" : "password"}
+                              className={classes.inputPass}
+                              required
+                              size='small'
+                              label='Password'
+                              //  type="password"
+                              variant='outlined'
+                              defaultValue={password}
+                              onChange={(event) =>
+                                 setPassword(event.target.value)
+                              }
+                              endAdornment={
+                                 <InputAdornment position='end'>
+                                    <IconButton
+                                       aria-label='toggle password visibility'
+                                       onClick={handleClickShowPassword}
+                                       onMouseDown={handleMouseDownPassword}
+                                       edge='end'
+                                       style={{ color: "#BDC3C7" }}
+                                    >
+                                       {passwordShown ? (
+                                          <Visibility />
+                                       ) : (
+                                          <VisibilityOff />
+                                       )}
+                                    </IconButton>
+                                 </InputAdornment>
+                              }
+                              labelWidth={70}
+                           />
+                        </FormControl>
+                        <Button
+                           id='submit'
+                           type='submit'
+                           className={classes.BtnLogin}
+                           size='small'
+                           variant='contained'
+                        >
+                           LOG IN
+                        </Button>
+
+                        <Button
+                           className={classes.BtnSignUp}
+                           size='small'
+                           variant='contained'
+                           component={Link}
+                           to='/signup'
+                        >
+                           SIGN UP
+                        </Button>
+                        <Button
+                           className={classes.BtnForgot}
+                           size='small'
+                           component={Link}
+                           to='/forgot'
+                        >
+                           Forgot Password?
+                        </Button>
+                     </form>
+                  </div>
+                  <div style={{ width: "100%", padding: 9 }} />
+                  <div
+                     style={{
+                        textAlign: "left",
+                        color: "#dddddd",
+                        padding: 10,
+                     }}
+                  >
+                     {props.ver}
+                  </div>
+               </Paper>
+            </div>
          </div>
       </div>
    );

@@ -19,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
    withoutLabel: {
       marginTop: theme.spacing(3),
    },
+   main: {
+      backgroundColor: "#333",
+      width: window.innerWidth,
+      height: window.innerHeight,
+   },
    loginContainer: {
       width: 525,
       margin: 10,
@@ -156,78 +161,80 @@ const Forgot = () => {
    );
 
    return (
-      <div className='vertical-center center-outer'>
-         <div className={classes.loginInnerContainer}>
-            <Paper className={classes.loginContainer} elevation={8}>
-               <div>
-                  <div className={classes.topLogoSpacer} />
-                  {/* -----------Header----------------*/}
+      <div className={classes.main}>
+         <div className='vertical-center center-outer'>
+            <div className={classes.loginInnerContainer}>
+               <Paper className={classes.loginContainer} elevation={8}>
                   <div>
-                     <div className='displayBlock headerNameLogin'></div>
-
+                     <div className={classes.topLogoSpacer} />
+                     {/* -----------Header----------------*/}
                      <div>
-                        <div className={classes.topSpacer} />
-                        <div className={msgForWelcome}>
-                           <span className={classes.forgotTxt}>
-                              Forgot Your password?
-                           </span>
-                           Please enter your email and we will send you
-                           <br />
-                           instructions to reset your password
-                        </div>
-                        <div
-                           className={msgForError}
-                           style={{
-                              color: "#900",
-                           }}
-                        >
-                           {response}
+                        <div className='displayBlock headerNameLogin'></div>
+
+                        <div>
+                           <div className={classes.topSpacer} />
+                           <div className={msgForWelcome}>
+                              <span className={classes.forgotTxt}>
+                                 Forgot Your password?
+                              </span>
+                              Please enter your email and we will send you
+                              <br />
+                              instructions to reset your password
+                           </div>
+                           <div
+                              className={msgForError}
+                              style={{
+                                 color: "#900",
+                              }}
+                           >
+                              {response}
+                           </div>
                         </div>
                      </div>
+
+                     <div className={seeForm}>
+                        <form onSubmit={handleForgot}>
+                           <TextField
+                              id='email'
+                              className={classes.inputContainer}
+                              required
+                              size='small'
+                              label='Email'
+                              InputLabelProps={{
+                                 shrink: true,
+                              }}
+                              variant='outlined'
+                              defaultValue={" "}
+                              onChange={(event) =>
+                                 setEmail(event.target.value.toString().trim())
+                              }
+                           />
+                           <br />
+
+                           <Button
+                              className={classes.BtnLogin}
+                              size='small'
+                              variant='contained'
+                              onClick={handleForgot}
+                           >
+                              RESET PASSWORD
+                           </Button>
+                           <br />
+
+                           <Button
+                              className={classes.BtnForgot}
+                              size='small'
+                              component={Link}
+                              to='/login'
+                           >
+                              Back to Log In
+                           </Button>
+                        </form>
+                     </div>
+                     <div style={{ width: "100%", padding: 9 }} />
                   </div>
-
-                  <div className={seeForm}>
-                     <form onSubmit={handleForgot}>
-                        <TextField
-                           id='email'
-                           className={classes.inputContainer}
-                           required
-                           size='small'
-                           label='Email'
-                           InputLabelProps={{
-                              shrink: true,
-                           }}
-                           variant='outlined'
-                           defaultValue={" "}
-                           onChange={(event) =>
-                              setEmail(event.target.value.toString().trim())
-                           }
-                        />
-                        <br />
-
-                        <Button
-                           className={classes.BtnLogin}
-                           size='small'
-                           variant='contained'
-                           onClick={handleForgot}
-                        >
-                           RESET PASSWORD
-                        </Button>
-                        <br />
-
-                        <Button
-                           className={classes.BtnForgot}
-                           size='small'
-                           component={Link}
-                           to='/login'
-                        >
-                           Back to Log In
-                        </Button>
-                     </form>
-                  </div>
-                  <div style={{ width: "100%", padding: 9 }} />
-               </div>
-            </Paper>
+               </Paper>
+            </div>
          </div>
       </div>
    );

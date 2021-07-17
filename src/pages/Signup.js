@@ -25,6 +25,11 @@ const useStyles = makeStyles((theme) => ({
    withoutLabel: {
       marginTop: theme.spacing(3),
    },
+   main: {
+      backgroundColor: "#333",
+      width: window.innerWidth,
+      height: window.innerHeight,
+   },
    loginContainer: {
       width: 540,
       margin: 10,
@@ -117,7 +122,7 @@ const useStyles = makeStyles((theme) => ({
    },
    alink: {
       textDecoration: "none",
-      color: theme.palette.secondary.main,
+      color: theme.palette.primary.main,
    },
    topLogoSpacer: {
       display: "block",
@@ -205,166 +210,178 @@ const Login = (props) => {
    );
 
    return (
-      <div className='vertical-center center-outer'>
-         <div className={classes.loginInnerContainer}>
-            <Paper className={classes.loginContainer} elevation={8}>
-               <div className='padding1'>
-                  {/* -----------Header----------------*/}
-                  <div className={classes.topLogoSpacer} />
-                  <div
-                     className={msgResponse}
-                     style={{
-                        color: "#900",
-                     }}
-                  >
-                     {response}
-                  </div>
-                  <div className={`${classes.progress}  ${loading}`}>
-                     <div className='center-inner'>
-                        <CircularProgress />
-                        <br />
-                        Connecting to cloud.
+      <div className={classes.main}>
+         <div className='vertical-center center-outer'>
+            <div className={classes.loginInnerContainer}>
+               <Paper className={classes.loginContainer} elevation={8}>
+                  <div className='padding1'>
+                     {/* -----------Header----------------*/}
+                     <div className={classes.topLogoSpacer} />
+                     <div
+                        className={msgResponse}
+                        style={{
+                           color: "#900",
+                        }}
+                     >
+                        {response}
                      </div>
-                  </div>
-                  <div className={seeForm}>
-                     <form onSubmit={handleSignUp}>
-                        <label htmlFor='email' style={{ display: "none" }}>
-                           Email
-                        </label>
-                        <TextField
-                           id='email'
-                           className={classes.inputContainer}
-                           required
-                           size='small'
-                           placeholder='Input text'
-                           label='Email'
-                           InputLabelProps={{
-                              shrink: true,
-                           }}
-                           variant='outlined'
-                           defaultValue={email}
-                           onChange={(event) =>
-                              setEmail(event.target.value.toString().trim())
-                           }
-                        />
-
-                        <FormControl
-                           className={clsx(classes.margin, classes.textField)}
-                           variant='outlined'
-                           style={{ marginTop: 42 }}
-                        >
-                           <label
-                              htmlFor='outlined-adornment-password'
-                              style={{ display: "none" }}
-                           >
+                     <div className={`${classes.progress}  ${loading}`}>
+                        <div className='center-inner'>
+                           <CircularProgress />
+                           <br />
+                           Connecting to cloud.
+                        </div>
+                     </div>
+                     <div className={seeForm}>
+                        <form onSubmit={handleSignUp}>
+                           <label htmlFor='email' style={{ display: "none" }}>
                               Email
                            </label>
-
-                           {/** password 1 */}
-                           <InputLabel htmlFor='outlined-adornment-password'>
-                              Password
-                           </InputLabel>
-                           <OutlinedInput
-                              id='outlined-adornment-password'
-                              type={passwordShown ? "text" : "password"}
-                              className={classes.inputPass}
+                           <TextField
+                              id='email'
+                              className={classes.inputContainer}
                               required
                               size='small'
-                              label='Password'
                               placeholder='Input text'
+                              label='Email'
+                              InputLabelProps={{
+                                 shrink: true,
+                              }}
                               variant='outlined'
-                              defaultValue={password}
+                              defaultValue={email}
                               onChange={(event) =>
-                                 setPassword(event.target.value)
+                                 setEmail(event.target.value.toString().trim())
                               }
-                              endAdornment={
-                                 <InputAdornment position='end'>
-                                    <IconButton
-                                       aria-label='toggle password visibility'
-                                       onClick={handleClickShowPassword}
-                                       onMouseDown={handleMouseDownPassword}
-                                       edge='end'
-                                       style={{ color: "#BDC3C7" }}
-                                    >
-                                       {passwordShown ? (
-                                          <Visibility />
-                                       ) : (
-                                          <VisibilityOff />
-                                       )}
-                                    </IconButton>
-                                 </InputAdornment>
-                              }
-                              labelWidth={70}
                            />
-                        </FormControl>
-                        <FormControl
-                           className={clsx(classes.margin, classes.textField)}
-                           variant='outlined'
-                           style={{ marginTop: 40 }}
-                        >
-                           {/** password 2 */}
-                           <InputLabel htmlFor='outlined-adornment-password2'>
-                              Confirm Password
-                           </InputLabel>
-                           <OutlinedInput
-                              id='password2'
-                              type={passwordShown2 ? "text" : "password"}
-                              className={classes.inputPass}
-                              required
+
+                           <FormControl
+                              className={clsx(
+                                 classes.margin,
+                                 classes.textField
+                              )}
+                              variant='outlined'
+                              style={{ marginTop: 42 }}
+                           >
+                              <label
+                                 htmlFor='outlined-adornment-password'
+                                 style={{ display: "none" }}
+                              >
+                                 Email
+                              </label>
+
+                              {/** password 1 */}
+                              <InputLabel htmlFor='outlined-adornment-password'>
+                                 Password
+                              </InputLabel>
+                              <OutlinedInput
+                                 id='outlined-adornment-password'
+                                 type={passwordShown ? "text" : "password"}
+                                 className={classes.inputPass}
+                                 required
+                                 size='small'
+                                 label='Password'
+                                 placeholder='Input text'
+                                 variant='outlined'
+                                 defaultValue={password}
+                                 onChange={(event) =>
+                                    setPassword(event.target.value)
+                                 }
+                                 endAdornment={
+                                    <InputAdornment position='end'>
+                                       <IconButton
+                                          aria-label='toggle password visibility'
+                                          onClick={handleClickShowPassword}
+                                          onMouseDown={handleMouseDownPassword}
+                                          edge='end'
+                                          style={{ color: "#BDC3C7" }}
+                                       >
+                                          {passwordShown ? (
+                                             <Visibility />
+                                          ) : (
+                                             <VisibilityOff />
+                                          )}
+                                       </IconButton>
+                                    </InputAdornment>
+                                 }
+                                 labelWidth={70}
+                              />
+                           </FormControl>
+                           <FormControl
+                              className={clsx(
+                                 classes.margin,
+                                 classes.textField
+                              )}
+                              variant='outlined'
+                              style={{ marginTop: 40 }}
+                           >
+                              {/** password 2 */}
+                              <InputLabel htmlFor='outlined-adornment-password2'>
+                                 Confirm Password
+                              </InputLabel>
+                              <OutlinedInput
+                                 id='password2'
+                                 type={passwordShown2 ? "text" : "password"}
+                                 className={classes.inputPass}
+                                 required
+                                 size='small'
+                                 label='ConfirmPassword'
+                                 //  type="password"
+                                 variant='outlined'
+                                 defaultValue={password2}
+                                 onChange={(event) =>
+                                    setPassword2(event.target.value)
+                                 }
+                                 endAdornment={
+                                    <InputAdornment position='end'>
+                                       <IconButton
+                                          aria-label='toggle password visibility'
+                                          onClick={handleClickShowPassword2}
+                                          onMouseDown={handleMouseDownPassword2}
+                                          edge='end'
+                                          style={{ color: "#BDC3C7" }}
+                                       >
+                                          {passwordShown2 ? (
+                                             <Visibility />
+                                          ) : (
+                                             <VisibilityOff />
+                                          )}
+                                       </IconButton>
+                                    </InputAdornment>
+                                 }
+                                 labelWidth={70}
+                              />
+                           </FormControl>
+
+                           <Button
+                              className={classes.BtnSignUp}
                               size='small'
-                              label='ConfirmPassword'
-                              //  type="password"
-                              variant='outlined'
-                              defaultValue={password2}
-                              onChange={(event) =>
-                                 setPassword2(event.target.value)
-                              }
-                              endAdornment={
-                                 <InputAdornment position='end'>
-                                    <IconButton
-                                       aria-label='toggle password visibility'
-                                       onClick={handleClickShowPassword2}
-                                       onMouseDown={handleMouseDownPassword2}
-                                       edge='end'
-                                       style={{ color: "#BDC3C7" }}
-                                    >
-                                       {passwordShown2 ? (
-                                          <Visibility />
-                                       ) : (
-                                          <VisibilityOff />
-                                       )}
-                                    </IconButton>
-                                 </InputAdornment>
-                              }
-                              labelWidth={70}
-                           />
-                        </FormControl>
-
-                        <Button
-                           className={classes.BtnSignUp}
-                           size='small'
-                           variant='contained'
-                           onClick={handleSignUp}
-                        >
-                           SIGN UP
-                        </Button>
-                     </form>
+                              variant='contained'
+                              onClick={handleSignUp}
+                           >
+                              SIGN UP
+                           </Button>
+                        </form>
+                     </div>
                   </div>
-               </div>
-               <div className={classes.already}>
-                  Already have an account?{" "}
-                  <a href='/login' className={classes.alink}>
-                     Log In
-                  </a>
-               </div>
+                  <div className={classes.already}>
+                     Already have an account?{" "}
+                     <a href='/login' className={classes.alink}>
+                        Log In
+                     </a>
+                  </div>
 
-               <div style={{ width: "100%", padding: 9 }} />
-               <div
-                  style={{ textAlign: "left", color: "#dddddd", padding: 10 }}
-               >
-                  {props.ver}
-               </div>
-            </Paper>
+                  <div style={{ width: "100%", padding: 9 }} />
+                  <div
+                     style={{
+                        textAlign: "left",
+                        color: "#dddddd",
+                        padding: 10,
+                     }}
+                  >
+                     {props.ver}
+                  </div>
+               </Paper>
+            </div>
          </div>
       </div>
    );
