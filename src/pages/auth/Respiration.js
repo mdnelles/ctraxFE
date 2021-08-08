@@ -41,7 +41,7 @@ const Respiration = (props) => {
    };
 
    useEffect(() => {
-      //console.log(respirationData);
+      // console.log(respirationData);
    }, [data, respirationData]);
 
    return (
