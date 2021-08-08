@@ -16,25 +16,32 @@ const LineSimple = (props) => {
    let chart = am4core.create(chartName, am4charts.XYChart);
    let mainColor = "#fff75e";
 
-   //data.push({ date: date, value: value });
+   //data.push({ duration: duration, value: value });
    chart.data = data;
-   console.log("chart====");
-   console.log(chart);
-   // Create axes
-   let dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-   console.log("dateAxis====");
-   console.log(dateAxis);
-   dateAxis.renderer.minGridDistance = 0;
 
-   let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-   valueAxis.title.text = valueAxisLabel;
-   valueAxis.title.fontWeight = "bold";
-   //valueAxis.title.color = "yellow";
+   // Create axes
+   // Create axes
+   var yAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+   yAxis.dataFields.category = "stage";
+   //yAxis.renderer.grid.template.location = 0;
+   yAxis.renderer.minGridDistance = 30;
+
+   var xAxis = chart.yAxes.push(new am4charts.DurationAxis());
+   xAxis.baseUnit = "second";
+   xAxis.title.text = "Duration";
 
    // Create series
    let series = chart.series.push(new am4charts.LineSeries());
+   //var series = chart.series.push(new am4charts.LineSeries());
+   series.dataFields.valueX = "duration";
+   series.dataFields.categoryY = "stage";
+   //series.columns.template.tooltipText = "{categoryX}: {valueY}";
+
+   /*
+   // Create series
+   let series = chart.series.push(new am4charts.LineSeries());
    series.dataFields.valueY = "value";
-   series.dataFields.dateX = "date";
+   series.dataFields.durationX = "duration";
    series.tooltipText = "{value}";
    series.fill = am4core.color(mainColor);
    series.stroke = am4core.color(mainColor);
@@ -43,7 +50,7 @@ const LineSimple = (props) => {
 
    chart.cursor = new am4charts.XYCursor();
    chart.cursor.snapToSeries = series;
-   chart.cursor.xAxis = dateAxis;
+   chart.cursor.xAxis = durationAxis;
 
    const bullet = series.bullets.push(new am4charts.Bullet());
 
@@ -54,9 +61,9 @@ const LineSimple = (props) => {
    circle.fill = am4core.color("#fff");
    circle.strokeWidth = 1.5;
 
-   /* Changing tooltip background fill */
    series.tooltip.getFillFromObject = false;
    series.tooltip.background.fill = am4core.color(mainColor);
+*/
 
    //chart.scrollbarY = new am4core.Scrollbar();
    //chart.scrollbarX = new am4core.Scrollbar();

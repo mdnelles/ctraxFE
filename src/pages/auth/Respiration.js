@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import NativeSelect from "@material-ui/core/NativeSelect";
 
 import LineSimple from "../../components/graphs/LineSimple";
 import { useRespirationData } from "../../common/state/respiration/hooks";
@@ -34,15 +33,15 @@ const Respiration = (props) => {
             temp = e.timeoffset_epoch_breath;
       });
 
-      console.log(temp);
-      for (const [date, value] of Object.entries(temp)) {
-         arr.push({ date, value });
+      for (const [duration, stage] of Object.entries(temp)) {
+         arr.push({ duration: parseInt(duration), stage: stage });
       }
       setData(arr);
+      console.log(arr);
    };
 
    useEffect(() => {
-      console.log(respirationData);
+      //console.log(respirationData);
    }, [data, respirationData]);
 
    return (
